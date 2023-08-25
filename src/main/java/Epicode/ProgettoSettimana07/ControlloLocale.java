@@ -6,14 +6,17 @@ import java.util.List;
 import Epicode.ProgettoSettimana07.sonda.SondaStandard;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
+@ToString
 public class ControlloLocale implements Subscriber {
 	// Definizione attributi
 	long id;
 	List<SondaStandard> listaSonde = new ArrayList<>();
 	List<SondaStandard> listaStatiSonde = new ArrayList<>();
+	ControlloRemoto ccr;
 
 	// Definizione costruttore con il solo ID
 	public ControlloLocale(long id) {
@@ -24,10 +27,15 @@ public class ControlloLocale implements Subscriber {
 		System.out.println("Centro di Controllo Locale " + this.id + " Creata con successo!");
 	}
 
-	// Definizione metodi per la trasmissione di valori
+	// Definizione metodi
 	public void aggiungiSonda(SondaStandard sonda) {
 		this.listaSonde.add(sonda);
 		System.out.println("Sonda " + sonda.getId() + " aggiunta con successo al centro di controllo " + this.id);
+	}
+
+	public void aggiungiControlloRemoto(ControlloRemoto ccr) {
+		this.ccr = ccr;
+		System.out.println("Centro di Controllo Remoto " + ccr.getId() + " aggiunto correttamente");
 	}
 
 	public void aggiornaStatoSonda(SondaStandard sonda) {
@@ -46,9 +54,11 @@ public class ControlloLocale implements Subscriber {
 		return listaSonde;
 	}
 
+
 	@Override
 	public void receiveUpdate(SondaStandard sonda) {
 		aggiornaStatoSonda(sonda);
+		sonda.getCentroControlloLocale().getCcr().receiveUpdate(sonda);
 	}
 
 }

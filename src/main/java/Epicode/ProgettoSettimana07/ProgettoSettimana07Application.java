@@ -45,8 +45,17 @@ public class ProgettoSettimana07Application {
 		ccl1.aggiungiSonda(sondaCinque);
 		ccl1.aggiungiSonda(sondaSei);
 
+		// Creazione Centro di Controllo Remoto ccr
+		ControlloRemoto ccr = new ControlloRemoto(1);
+
+		// Collegamento del CCL al CCR
+		System.out.println(ccl1);
+		ccl1.aggiungiControlloRemoto(ccr);
+
 		// Aggiorno il livello del fumo in una sonda
 		sondaUno.aggiornaLivelloFumoSonda(5);
+
+
 	}
 
 }
