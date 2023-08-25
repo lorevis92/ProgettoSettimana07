@@ -24,24 +24,27 @@ public class ControlloLocale implements Subscriber {
 	}
 
 	public void messaggioCreazione() {
-		System.out.println("Centro di Controllo Locale " + this.id + " Creata con successo!");
+		System.out.println("Centro di Controllo Locale " + this.id + " creato con successo!");
 	}
 
 	// Definizione metodi
 	public void aggiungiSonda(SondaStandard sonda) {
 		this.listaSonde.add(sonda);
-		System.out.println("Sonda " + sonda.getId() + " aggiunta con successo al centro di controllo " + this.id);
+		System.out
+				.println("Sonda " + sonda.getId() + " aggiunta con successo al centro di controllo Locale " + this.id);
 	}
 
 	public void aggiungiControlloRemoto(ControlloRemoto ccr) {
 		this.ccr = ccr;
-		System.out.println("Centro di Controllo Remoto " + ccr.getId() + " aggiunto correttamente");
+		System.out.println("Centro di Controllo Locale " + this.id
+				+ " associato corettamente al Centro di Controllo Remoto " + ccr.getId() + "\n");
 	}
 
 	public void aggiornaStatoSonda(SondaStandard sonda) {
 		this.listaStatiSonde.add(sonda);
 		System.out.println("Messaggio emesso dal Centro di Controllo Locale " + this.id + ": la sonda " + sonda.getId()
-				+ " ha subito una variazione nel livello di fumo. Livello di fumo attuale: " + sonda.getLivelloFumo());
+				+ " ha subito una variazione nel livello di fumo. Livello di fumo attuale: " + sonda.getLivelloFumo()
+				+ "\n");
 	}
 
 	public void rimuoviSonda(SondaStandard sonda) {

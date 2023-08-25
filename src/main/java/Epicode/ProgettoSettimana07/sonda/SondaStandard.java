@@ -32,7 +32,7 @@ public class SondaStandard extends Sonda {
 
 	public void messaggioCreazione() {
 		System.out.println("Sonda " + this.id + " con coordinate " + this.latitudine + " e " + this.longitudine
-				+ " Creata con successo!");
+				+ " creata con successo!");
 	}
 
 	public void aggiungiCentroControlloLocale(ControlloLocale centroControlloLocale) {
