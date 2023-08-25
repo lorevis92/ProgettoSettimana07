@@ -82,7 +82,7 @@ public class ProgettoSettimana07Application {
 		System.out.println("\n------------------------------------\n");
 
 		// Aggiorno il livello del fumo in una sonda
-		sondaUno.aggiornaLivelloFumoSonda(4);
+		sondaUno.aggiornaLivelloFumoSonda(20);
 	}
 
 }
