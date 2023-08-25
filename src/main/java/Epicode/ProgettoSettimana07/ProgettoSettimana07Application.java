@@ -45,6 +45,8 @@ public class ProgettoSettimana07Application {
 		ccl1.aggiungiSonda(sondaCinque);
 		ccl1.aggiungiSonda(sondaSei);
 
+		// Aggiorno il livello del fumo in una sonda
+		sondaUno.aggiornaLivelloFumoSonda(5);
 	}
 
 }

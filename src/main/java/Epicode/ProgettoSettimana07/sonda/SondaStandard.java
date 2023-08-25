@@ -23,7 +23,8 @@ public class SondaStandard extends Sonda {
 		this.longitudine = longitudine;
 	}
 
-	@Override
+	@Override // sono i dati che trasfersce in quando PUBLISHER verso il SUBSCRIBER Centro di
+				// controllo Locale Associato
 	public int trasferisciDati() {
 		System.out.println("Livelo di fumo registrato dalla sonda id " + this.id + ": " + this.livelloFumo);
 		return this.livelloFumo;
@@ -38,5 +39,10 @@ public class SondaStandard extends Sonda {
 		this.centroControlloLocale = centroControlloLocale;
 		System.out.println("Centro di Controllo Locale " + centroControlloLocale.getId()
 				+ " impostato correttamente sulla sonda " + this.id);
+	}
+
+	public void aggiornaLivelloFumoSonda(int livelloFumo) {
+		this.livelloFumo = livelloFumo;
+		this.centroControlloLocale.receiveUpdate(this);
 	}
 }
